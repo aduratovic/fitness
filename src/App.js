@@ -1,27 +1,16 @@
-import './App.css';
-import './App.css';
-import React from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+const express = require('express');
+const app = express();
+const cors = require('cors');
+require('./db/conn')
+const exercisesRouter = require('./routes/exercises')
+const usersRouter = require('./routes/users')
+const port = process.env.PORT || 8000;
 
-import Navbar from "./components/navbar.component"
-import ExercisesList from "./components/exercises-list.component";
-import EditExercise from "./components/edit-exercise.component";
-import CreateExercise from "./components/create-exercise.component";
-import CreateUser from "./components/create-user.component";
+app.use(cors());
+app.use(express.json());
+app.use('/api/exercises', exercisesRouter);
+app.use('/api/users', usersRouter);
 
-function App() {
-  return (
-    <Router>
-      <div className="container">
-        <Navbar />
-        <br/>
-        <Route path="/" exact component={ExercisesList} />
-        <Route path="/edit/:id" component={EditExercise} />
-        <Route path="/create" component={CreateExercise} />
-        <Route path="/user" component={CreateUser} />
-      </div>
-    </Router>
-  );
-}
-
-export default App;
+app.listen(port, () => {
+    console.log(`Server is running on port: ${port}`);
+});
