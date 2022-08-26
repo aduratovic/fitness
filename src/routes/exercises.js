@@ -8,9 +8,14 @@ router.post('/:id', async (req,res)=>{
         const newExercise = new Exercise({
             userId: req.params.id,
             type: req.body.type,
+            weightTrainingType: req.body.weightTrainingType,
             name: req.body.name,
+            exercise: req.body.exercise,
             duration: req.body.duration,
             distance: req.body.distance,
+            speed: req.body.speed,
+            incline:req.body.incline,
+            stairsClimbed:req.body.stairsClimbed,
             weights: req.body.weights,
             sets: req.body.sets,
             reps: req.body.reps,
@@ -24,9 +29,9 @@ router.post('/:id', async (req,res)=>{
 })
 
 //get all exercises
-router.get('/:id', async (req,res)=>{
+router.get('/:userId', async (req,res)=>{
     try {
-        const exercises = await Exercise.find({userId:req.params.id}).sort({date:-1})
+        const exercises = await Exercise.find({userId:req.params.userId}).sort({createdAt:-1})
         res.status(200).json(exercises)
     } catch (error) {
         res.status(500).json(error)
@@ -35,42 +40,56 @@ router.get('/:id', async (req,res)=>{
 })
 
 //get latest activity
-router.get('/latest/:id', async (req,res)=>{
+router.get('/latest/:userId', async (req,res)=>{
     try {
-        const exercises = await Exercise.find({userId:req.params.id}).sort({createdAt:-1})
+        const exercises = await Exercise.find({userId:req.params.userId}).sort({createdAt:-1})
         const type = exercises[0].type
         const d = exercises[0].createdAt.getDate()
 
         let exercise
-        if(type === "cardio")
+        if(type === "Cardio")
         {    
             exercise = await Exercise.aggregate([
                 {
-                    $match : {type:"cardio", userId: req.params.id, date: d}
+                    $match : {type:"Cardio", userId: req.params.userId, date: d}
                 },
                 {
                     $group : { 
-                        _id: null , 
-                        distance: { $sum: "$distance" }, 
+                        _id: null ,
                         duration: {$sum:"$duration"},
-                        totalExercise : {$sum:1}
+                        totalExersice : {$sum:1}
                     }
                 }
             ])
         }
-        else{
+        else if(type === "Resistance (machines)"){
             exercise = await Exercise.aggregate([
                 {
-                    $match : {type:"resistance", userId: req.params.id,date:d}
+                    $match : {type:"Resistance (machines)", userId: req.params.userId,date:d}
                 },
                 {
                     $group : { 
                         _id: null ,
                         weights: { $sum: "$weights" }, 
                         sets: { $sum: "$sets" }, 
-                        reps: { $sum: "$reps" }, 
-                        duration: {$sum:"$duration"},
-                        totalExercise : {$sum:1}
+                        reps: { $sum: "$reps" },
+                        totalExersice : {$sum:1}
+                    }
+                }
+            ])
+        }
+        else if(type === "Weight Training"){
+            exercise = await Exercise.aggregate([
+                {
+                    $match : {type:"Weight Training", userId: req.params.userId,date:d}
+                },
+                {
+                    $group : { 
+                        _id: null ,
+                        weights: { $sum: "$weights" }, 
+                        sets: { $sum: "$sets" }, 
+                        reps: { $sum: "$reps" },
+                        totalExersice : {$sum:1}
                     }
                 }
             ])
@@ -83,9 +102,9 @@ router.get('/latest/:id', async (req,res)=>{
 })
 
 //Update
-router.patch('/:id', async (req,res)=>{
+router.patch('/:exerciseId', async (req,res)=>{
     try {
-        const updateExercise = await Exercise.findByIdAndUpdate(req.params.id,{$set : req.body},{new:true})
+        const updateExercise = await Exercise.findByIdAndUpdate(req.params.exerciseId,{$set : req.body},{new:true})
         res.status(200).json(updateExercise)
     } catch (error) {
         res.status(500).json(error)
@@ -93,9 +112,9 @@ router.patch('/:id', async (req,res)=>{
 })
 
 //delete exercise
-router.delete('/:id', async (req,res)=>{
+router.delete('/:exerciseId', async (req,res)=>{
     try {
-        await Exercise.findByIdAndDelete(req.params.id)
+        await Exercise.findByIdAndDelete(req.params.exerciseId)
         res.status(200).json('Exercise Deleted')
     } catch (error) {
         res.status(500).json(error)

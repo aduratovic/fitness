@@ -1,0 +1,27 @@
+.navbar{
+    background-color:#fc7753;
+    padding: 20px 30px;
+}
+.wrapper{
+    display: flex;
+    justify-content: space-between;
+    
+}
+.navbar-brand{
+    margin-right: 20px;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #f2efea;
+}
+
+@media only screen and (max-width: 912px) {
+    .wrapper{
+        align-items: center;
+        justify-content: center;
+    }
+    .wrapper>span{
+        font-size: 25px;
+        font-weight: 600;
+    }
+}

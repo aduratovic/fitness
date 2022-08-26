@@ -1,47 +1,67 @@
 const mongoose = require("mongoose");
+const {enums} = require('../global')
+const {exercises} = require('../global')
 
-const exerciseSchema = new mongoose.Schema(
-  {
-    userId: {
-      type: String,
-      required: true,
+const exerciseSchema = new mongoose.Schema({
+    userId:{
+        type:String,
+        required:true
     },
-    type: {
-      type: String,
-      required: true,
+    type:{
+        type:String,
+        required: true,
+        enum : [...enums.type]
     },
-    name: {
-      type: String,
-      required: true,
+    weightTrainingType:{
+        type:String,
+        enum: [...enums.weightTrainingType]
     },
-    duration: {
-      type: Number,
-      required: true,
-      default: 0,
+    name:{
+        type:String,
+        enum: [...enums.name,'Legs']
     },
-    distance: {
-      type: Number,
-      default: 0,
+    exercise:{
+        type:String,
+        required:true,
+        enum: [...exercises]
     },
-    weights: {
-      type: Number,
-      default: 0,
+    duration:{
+        type:Number,
+        default:0
     },
-    sets: {
-      type: Number,
-      default: 0,
+    distance:{
+        type:Number,
+        default:0 
     },
-    reps: {
-      type: Number,
-      default: 0,
+    speed:{
+        type:Number,
+        default:0 
     },
-    date: {
-      type: Number,
+    incline:{
+        type:Boolean,
+        default:false 
     },
-  },
-  {
-    timestamps: true,
-  }
-);
+    stairsClimbed:{
+        type:Number,
+        default:0 
+    },
+    weights:{
+        type:Number,
+        default:0 
+    },
+    sets:{
+        type:Number,
+        default:0 
+    },
+    reps:{
+        type:Number,
+        default:0 
+    },
+    date: { 
+        type: Number
+    }
+}, {
+    timestamps:true
+})
 
-module.exports = mongoose.model("Exercise", exerciseSchema);
+module.exports = mongoose.model('Exercise',exerciseSchema)
