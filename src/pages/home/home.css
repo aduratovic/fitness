@@ -1,0 +1,18 @@
+.home{
+    display: flex;
+    padding: 0 100px;
+    margin-top: 50px;
+    justify-content: space-between;
+    align-items: center;
+}
+.main{
+    flex: 1;
+}
+.illustration{
+    flex: 1;
+
+}
+.illustration>img{
+    height: 400px;
+    object-fit: cover;
+}
