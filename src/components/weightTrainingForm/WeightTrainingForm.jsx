@@ -1,9 +1,9 @@
 import React from 'react'
 import axios from '../../util/axiosConfig'
-import { useEffect } from 'react'
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 
-function CoditionForExercise ({weightTrainingType,name,enums}){
+
+function Exercise ({weightTrainingType,name,enums}){
       if(weightTrainingType === "Dumbbell" && name === "Shoulder"){
         return (<>{enums.weightTrainingDumbbellShoulder.map((item) => <option>{item}</option>)}</>)
       }
@@ -36,7 +36,7 @@ function CoditionForExercise ({weightTrainingType,name,enums}){
       }
 }
 
-function WeightTrainingForm() {
+function WeightTrainingForm({setWorkout}) {
     const [weightTrainingType, setWeightTrainingType] = useState("")
     const [name, setName] = useState("")
     const [exercise, setExercise] = useState("")
@@ -53,6 +53,7 @@ function WeightTrainingForm() {
         sets,
         reps
     } 
+    setWorkout(workout)
        
     useEffect(() => {
         const getEnums = async ()=>{
@@ -66,7 +67,7 @@ function WeightTrainingForm() {
         getEnums()
       }, [])
   return (
-        <>
+        <div className='weightTrainingForm'>
             <div className="formItem">
                 <label>Weight Training Type: </label>
                 <select name="weightTrainingType" onChange={e=> setWeightTrainingType(e.target.value)}>
@@ -90,7 +91,7 @@ function WeightTrainingForm() {
                 <label>Exercise: </label>
                 <select name="exercise" onChange={e=> setExercise(e.target.value)}>
                     <option>Select</option>
-                    <CoditionForExercise weightTrainingType={weightTrainingType} name={name} enums={enums}/>
+                    <Exercise weightTrainingType={weightTrainingType} name={name} enums={enums}/>
                 </select>
             </div>
             <div className="formItem">
@@ -105,7 +106,7 @@ function WeightTrainingForm() {
                 <label>Reps: </label>
                 <input type="text" placeholder='Reps' onChange={e=> setReps(e.target.value)}/>
             </div>
-        </>
+        </div>
   )
 }
 
