@@ -1,4 +1,4 @@
-.login{
+.signUp{
     width: 100vw;
     height: 100vh;
     font-family: sans-serif;
@@ -7,8 +7,8 @@
     align-items: center;
     justify-content: center;
 }
-.main-login{
-    width: 90%;
+.main-signup{
+    width: 40%;
     max-width: 500px;
     background-color: #f2efea;
     padding: 30px;
@@ -17,7 +17,7 @@
     -webkit-box-shadow: 1px 1px 11px 2px rgba(128,128,128,0.89);
     -moz-box-shadow: 1px 1px 11px 2px rgba(128,128,128,0.89);
 }
-h3{
+.main-signup>h3{
     text-align: center;
     margin: 0;
     line-height: 1;
@@ -32,13 +32,13 @@ h3{
 .form-group>label {
    font-weight: 400;
 }
-.button{
+.signup-button{
     background-color: #fc7753;
     color: #f2efea;
     margin: 10px 0;
 }
 
-.sign-up,
+.log-in,
 span{
     text-align: right;
     font-size: 13px;
@@ -47,11 +47,7 @@ span{
     margin: 0;
 }
   
-.sign-up span {
+.log-in span {
     color: #239e98;
     cursor: pointer;
-}
-
-@media (max-width: 700px){
-
 }

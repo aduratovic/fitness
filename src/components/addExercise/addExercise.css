@@ -1,55 +1,49 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora&family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300&family=Source+Sans+Pro:wght@200;300;400;600;700;900&family=Ubuntu:wght@700&display=swap');
-.latest{
+.addExercise{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     font-family: 'Poppins', sans-serif;
+    margin: 0 auto;
 }
-
+.main{
+    width: 80%;
+}
 .name{
-    color: #f2efea;
-    font-size: 25px;
-    font-weight: 600;
-    padding: 20px;
-    text-shadow: 2px 3px 7px rgba(242,242,242,0.51);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
 }
-.info{
-    width: 70%;
-    border: 1px solid gray;
-    background-color: white;
+.card{
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     box-shadow: 1px 3px 10px 1px rgba(255,255,255,0.42);
     -webkit-box-shadow: 1px 3px 10px 1px rgba(255,255,255,0.42);
     -moz-box-shadow: 1px 3px 10px 1px rgba(255,255,255,0.42);
 }
-
-.title{
-    font-size: 20px;
-    font-weight: 600;
-    padding: 10px;
-    color: black;
-}
-
-.topInfo{
+.exercise-form>form{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 0 40px;
-    font-size: 14px;
 }
-.infoItem{
-    margin: 5px 0px;
+.formItem{
+    margin-top: 5px;
+    
 }
-.infoItem>span{
-    font-weight: 700;
-    margin-right: 5px;
-    color: black;
+.formItem>label{
+    margin-right: 10px;
+    font-weight: 600;
 }
+.formItem>select,input{
+    padding: 3px;
+    font-size: 13px;
+}
+
 .buttons{
     display: flex;
     width: 100%;
