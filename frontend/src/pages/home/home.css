@@ -1,0 +1,47 @@
+.home{
+    display: flex;
+    padding: 0 100px;
+    margin-top: 50px;
+    justify-content: space-between;
+    align-items: center;
+}
+.main{
+    flex: 1;
+}
+.illustration{
+    flex: 1;
+}
+.illustration>img{
+    width: 500px;
+    height: 400px;
+    object-fit: cover;
+}
+@media (max-width: 1050px){
+    .home{
+        flex-direction: column;
+        padding: 0px;
+        margin: 0px;
+        padding-bottom: 100px;
+    }
+    .illustration>img{
+        order: 0;
+        width: 380px;
+        height: 300px;
+    } 
+    .main{
+        order: 1;
+    }
+
+}
+@media (max-width: 400px){
+    .illustration>img{
+        order: 0;
+        width: 280px;
+        height: 200px;
+    } 
+    .main{
+        order: 1;
+        min-width: 280px;
+    }
+
+}
