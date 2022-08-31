@@ -1,70 +1,77 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![logg3 (2)](https://user-images.githubusercontent.com/25209405/187536834-1f47653d-c408-4cd7-8495-2147cf0d5182.svg)
 
-## Available Scripts
+# FIT-LOG
 
-In the project directory, you can run:
+A fitness app which allows you to log and track your workout progress. 
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## Responsiveness
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/25209405/187593114-a5642209-22a3-47b9-9054-94615683059b.gif)
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Features
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- register
+- log-in
+- three workout types (cardio, resistance and weightlifting)
+- variety of exercises to select from
+- input specific information related to your workout(duration, speed, weight(lbs),etc)
+- log the workout
+- dashboard that details your workout information
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Component Hierarchy
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![Screenshot (298)](https://user-images.githubusercontent.com/25209405/187547065-7ea045db-c71c-4a09-a9f8-f74980e5f292.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## FLOW
 
-### Code Splitting
+![Screenshot (295)](https://user-images.githubusercontent.com/25209405/187544757-b37e77a4-e168-4a5a-b4d8-fe911a8e0ed9.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+![Screenshot (296)](https://user-images.githubusercontent.com/25209405/187544770-bec8d60d-c6a9-4c9e-9fd4-8cc7f7bfaf51.png)
 
-### Analyzing the Bundle Size
+![Screenshot (297)](https://user-images.githubusercontent.com/25209405/187544790-2c251a23-d022-4def-98f7-3651d9c9a613.png)
+## DEPENDENCIES
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+https://mui.com/
 
-### Making a Progressive Web App
+https://expressjs.com/
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+https://mongoosejs.com/
 
-### Advanced Configuration
+npmjs.com/package/dotenv
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
+## GIF
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![ezgif com-gif-maker (2)](https://user-images.githubusercontent.com/25209405/187592125-f138d00b-e956-4d77-bf25-5ec682f4530f.gif)
+
+
+
+
+## Tech Stack
+
+**Client:** React
+
+**Server:** Node, Express , mongodb
+
+
+## Deployment
+
+NETLIFY
+https://fit-log8.netlify.app/login
+
+
+HEROKU
+https://fit-log8.herokuapp.com/api/enums
